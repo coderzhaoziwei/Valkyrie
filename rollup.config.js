@@ -18,8 +18,15 @@ export default {
     vue(),
     cleanup(),
     commonjs(),
-    clear({ targets: ["dist"] }),
-    string({ include: ["src/store/modules/worker/content.js"] }),
+    clear({
+      targets: ["dist"]
+    }),
+    string({
+      include: [
+        "src/html/*.html",
+        "src/store/modules/worker/content.js",
+      ],
+    }),
   ],
   external,
 }

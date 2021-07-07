@@ -13,14 +13,11 @@ const state = () => ({
 const getters = {}
 const mutations = {
   initWorker(state) {
-    console.log("initWorker")
     state.worker = new Worker(URL.createObjectURL(new Blob([content])))
   },
 }
 const actions = {
   initWebSocket({ state, getters, commit, dispatch }) {
-    console.log("initWebSocket")
-
     // 重写全局 WebSocket 类
     unsafeWindow.WebSocket = function(uri) {
       state.worker.postMessage({ type: "create", args: [uri] })
@@ -47,7 +44,6 @@ const actions = {
     }
   },
   initWebWorker({ state, getters, commit, dispatch }) {
-    console.log("initWebWorker")
     state.worker.onmessage = event => {
       const type = event.data.type
       const args = event.data.args
@@ -90,10 +86,10 @@ const actions = {
   },
   // 接收 Worker 线程中的 WebSocket 的 data 数据
   onData({ state, getters, commit, dispatch }, data) {
-    console.log(data)
+    // console.log(data)
     // 触发事件
     const type = data.dialog || data.type || "type"
-    dispatch("emitter/emit", { type, data }, { root: true })
+    dispatch("emit", { type, data })
     // 返回至 socket.onmessage 中处理
     const event = dataToEvent(data)
     state.socket.onmessage(event)
@@ -104,7 +100,6 @@ const actions = {
 }
 
 export default {
-  namespaced: true,
   state,
   getters,
   actions,

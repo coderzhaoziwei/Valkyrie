@@ -15,7 +15,13 @@ const mutations = {
 }
 
 const actions = {
-  async dispatch({ state, getters, commit, dispatch }) {
+  init({ state, getters, commit, dispatch, rootState }) {
+    dispatch("on", {
+      type: "",
+      handler(data) {
+
+      },
+    })
 
   }
 }
