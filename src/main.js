@@ -1,13 +1,15 @@
 import { createApp } from "vue"
-import App from "./App.vue"
+import App from "./components/App.vue"
 
 import store from "./store"
 
 const app = createApp(App)
 app.use(store)
+store.dispatch("worker/init")
 
 // DOM 加载完毕
 document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOMContentLoaded")
 
   // document.head.insertAdjacentHTML(`beforeend`, HeadHTML)
   // css

@@ -1,17 +1,18 @@
 import { createStore } from "vuex"
 
-import mutations from "./mutations"
-import actions from "./actions"
-
+import worker from "./modules/worker"
+import emitter from "./modules/emitter"
 
 const store = createStore({
-  state () {
-    return {
-      count: 0,
-    }
+  state() {
+    return {}
   },
-  mutations,
-  actions,
+  mutations: {},
+  actions: {},
+  modules: {
+    worker,
+    emitter,
+  }
 })
 
 export default store
