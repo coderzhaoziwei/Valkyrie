@@ -1,11 +1,6 @@
 import { name, version, author, description, homepage, icon, bugs, license } from "./package.json"
 import process from "process"
 
-const environment = process.env.NODE_ENV
-
-// @environment  ${ environment }
-
-export const sourcemap = true
 export const globals = {
   vue: "Vue",
   vuex: "Vuex",
