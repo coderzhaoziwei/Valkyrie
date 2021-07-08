@@ -8,10 +8,15 @@ store.dispatch("init")
 
 // 全局对象
 unsafeWindow.Vue = Vue
-unsafeWindow.store = store
+unsafeWindow.Valkyrie = {
+  store,
+  debugMode: GM_info.script.version.includes("dev"),
+}
 
 // DOM 加载完毕
 document.addEventListener("DOMContentLoaded", function() {
+  GM_log("DOM content has loaded.")
+
   console.log("document.event: DOMContentLoaded")
   document.head.insertAdjacentHTML("beforeend", head)
   document.body.insertAdjacentHTML("beforeend", `<div id="app"></div>`)
@@ -23,7 +28,16 @@ document.addEventListener("DOMContentLoaded", function() {
   // document.querySelector(`.room_desc`).remove()
 
   const app = Vue.createApp(App)
+  log("Install store (Vuex)")
   app.use(store)    // 安装 store 实例
   app.use(Element3) // 安装 Element3
   app.mount("#app") // 挂载
 })
+
+function log(...arg) {
+  if (unsafeWindow.Valkyrie.debugMode === true) {
+    GM_log(...arg)
+  }
+}
+
+unsafeWindow.console.log = () => 0
