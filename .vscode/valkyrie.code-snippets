@@ -1,0 +1,48 @@
+{
+  "unsafeWindow": {
+    "prefix": "unsafeWindow",
+    "body": ["unsafeWindow"],
+  },
+  "valkyrie": {
+    "prefix": "valkyrie",
+    "body": ["valkyrie"],
+  },
+  "valkyrie.on()": {
+    "scope": "javascript",
+    "prefix": "on",
+    "body": ["valkyrie.on($1)"],
+  },
+  "valkyrie.log()": {
+    "prefix": "log",
+    "body": ["valkyrie.log($1)"],
+  },
+  "valkyrie.send()": {
+    "prefix": "send",
+    "body": ["valkyrie.send($1)"],
+  },
+  "valkyrie.data()": {
+    "prefix": "data",
+    "body": ["valkyrie.data($1)"],
+  },
+  "valkyrie.text()": {
+    "prefix": "text",
+    "body": ["valkyrie.text($1)"],
+  },
+
+  "vuex-mutations": {
+    "prefix": "mutations",
+    "body": ["mutations: {},"],
+  },
+  "vuex-getters": {
+    "prefix": "getters",
+    "body": ["getters"],
+  },
+  "vuex-commit": {
+    "prefix": "commit",
+    "body": ["commit"],
+  },
+  "vuex-dispatch": {
+    "prefix": "dispatch",
+    "body": ["dispatch"],
+  },
+}
