@@ -17,7 +17,7 @@ class Chat {
     this.server = data.server || ``
   }
   get isSelf() {
-    return this.id === unsafeWindow.id
+    return this.id === unsafeWindow.valkyrie.id
   }
   get isTm() {
     return this.channel === `tm`
