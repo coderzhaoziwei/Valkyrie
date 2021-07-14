@@ -13,7 +13,7 @@ class Role extends Base {
   }
   get isSelf() {
     // 是否玩家自己
-    return this.id === unsafeWindow.id
+    return this.id === unsafeWindow.valkyrie.id
   }
   get isPlayer() {
     // 是否玩家
