@@ -7,3 +7,42 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element3/lib/theme-chalk/index.css"></link>
 <!-- tailwindcss -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css">
+
+<style>
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.login-content, .container {
+  order: 2;
+  margin: 0;
+  flex: 1 1 auto;
+  width: 256px;
+  min-width: 256px;
+  max-width: 768px;
+  /* border-left: 4px solid rgba(64, 64, 64, 0.5);
+  border-right: 4px solid rgba(64, 64, 64, 0.5);
+  font-size: 1rem !important; */
+}
+#left {
+  width: 256px;
+  order: 1;
+}
+#right {
+  width: 256px;
+  order: 3;
+}
+
+/* 地图 SVG 居中 */
+.room_exits {
+  display: flex;
+  justify-content: center;
+}
+.room_exits > svg {
+  margin-left: 0 !important;
+}
+</style>

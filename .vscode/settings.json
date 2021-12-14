@@ -1,0 +1,8 @@
+{
+  "editor.wordWrap": "on",
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+  "tailwindCSS.includeLanguages": {
+    "Vue": "html"
+  }
+}

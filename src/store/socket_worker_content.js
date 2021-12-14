@@ -39,7 +39,11 @@ const handlers = {
   },
   sendCommands(...args) {
     args = args.flat(Infinity)
-    args.forEach((item, index) => (/,/.test(item)) && (args[index] = item.split(",")))
+    // setting auto_
+    args.forEach((item, index) => {
+      if (/^setting/.test(item)) return
+      if (/,/.test(item)) args[index] = item.split(",")
+    })
     commands.push(...args.flat(Infinity))
   },
   clearCommands() {

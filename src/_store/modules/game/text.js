@@ -22,27 +22,27 @@ const initTextHandler = ({ state, commit, dispatch, rootGetters }) => {
       })
     }
   })
-  // valkyrie.on("text", data => {
-  //   const { type, text } = data
-  //   if (type === "text") {
-  //     commit("update", text)
-  //   }
-  // })
+  valkyrie.on("text", data => {
+    const { type, text } = data
+    if (type === "text") {
+      commit("add", text)
+    }
+  })
 }
 
 export default {
   namespaced: true,
   state: {
-    // list: [],
+    list: [],
   },
   getters: {
 
   },
   mutations: {
-    // update(state, value) {
-    //   state.list.push(value)
-    //   state.list.slice(256)
-    // },
+    add(state, text) {
+      state.list.push(text)
+      state.list.splice(0, state.list.length - 256)
+    },
   },
   actions: {
     init: { root: true, handler: initTextHandler },

@@ -6,7 +6,7 @@ import { string } from "rollup-plugin-string"
 import { banner, globals, external } from "./config.js"
 
 export default {
-  input: "src/main.js",
+  input: "src/index.js",
   output: [
     {
       format: "iife",
@@ -22,7 +22,7 @@ export default {
     string({
       include: [
         "src/html/*.html",
-        "src/store/modules/worker/content.js",
+        "src/store/socket_worker_content.js",
       ],
     }),
   ],

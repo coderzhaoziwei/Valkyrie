@@ -17,7 +17,6 @@ export default {
     init: { root: true, handler: initChatHandler },
   },
 }
-
 // channelList: [
 //   { label: "世界", value: "chat" },
 //   { label: "队伍", value: "tm" },
@@ -27,14 +26,12 @@ export default {
 // ],
 // channel: "chat",
 // content: "",
-
 // updateChannel(state, channel) {
 //   state.channel = channel
 // },
 // updateContent(state, content) {
 //   state.content = content
 // },
-
 // send({ state, commit }) {
 //   const channel = state.channel
 //   const content = state.content.trim()

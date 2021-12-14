@@ -23,17 +23,24 @@ const initTagHandler = ({ commit }) => {
     })
     data.state = tag || data.state || ""
     delete data.desc
-    commit("update", data.state)
+    commit("value", data.state)
+    if (data.detail) commit("detail", data.detail)
   })
-  valkyrie.on("combat", data => commit("update", data.start === 1 ? "战斗" : ""))
-  valkyrie.on("die", data => commit("update", data.relive === true ? "" : "死亡"))
+  valkyrie.on("combat", data => commit("value", data.start === 1 ? "战斗" : ""))
+  valkyrie.on("die", data => commit("value", data.relive === true ? "" : "死亡"))
 }
 
 export default {
   namespaced: true,
-  state: { value: "" },
+  state: { value: "", detail: "" },
   mutations: {
-    update: (state, value) => (state.value = value),
+    value(state, value) {
+      state.value = value
+      state.detail = ""
+    },
+    detail(state, detail) {
+      state.detail = detail
+    },
   },
   actions: {
     init: { root: true, handler: initTagHandler },

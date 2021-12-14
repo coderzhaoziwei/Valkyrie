@@ -29,27 +29,14 @@ export default {
         dispatch("onlogin")
       },
     },
-    onroles({ commit }) {
-      valkyrie.on("roles", data => {
-        if (Array.isArray(data.roles) === false) return
-        data.roles.forEach(role => commit("updateRole", role))
-      })
-    },
+    // onroles({ commit }) {
+    //   valkyrie.on("roles", data => {
+    //     if (Array.isArray(data.roles) === false) return
+    //     data.roles.forEach(role => commit("updateRole", role))
+    //   })
+    // },
     onlogin({ state, commit }) {
-      valkyrie.on("login", data => {
-        const id = data.id
-        const count = (state.roles[id].count || 0) + 1
-        const cookies = {
-          u: valkyrie.getCookie("u"),
-          p: valkyrie.getCookie("p"),
-          s: valkyrie.getCookie("s"),
-        }
-        const token = cookies.u + " " + cookies.p
-        const server = ["一区", "二区", "三区", "四区", "五区", "六区"][cookies.s]
 
-        commit("updateRole", { id, count, cookies, token, server })
-        commit("updateId", id)
-      })
       valkyrie.on("login", async () => {
         valkyrie.send("pack,score2,score")
         await valkyrie.sleep(1000)

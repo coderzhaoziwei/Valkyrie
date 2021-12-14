@@ -4,9 +4,12 @@ import process from "process"
 export const globals = {
   vue: "Vue",
   vuex: "Vuex",
+  pinia: "Pinia",
   element: "Element3",
+  valkyrie: "valkyrie",
 }
-export const external = ["vue", "vuex"]
+export const external = ["vue", "vuex", "pinia"]
+
 const tempermonkey = `// ==UserScript==
 // @name         ${ name }
 // @namespace    ${ homepage }
@@ -17,9 +20,10 @@ const tempermonkey = `// ==UserScript==
 // @icon         ${ icon }
 // @supportURL   ${ bugs.url }
 // @license      ${ license }
-// @require      https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js
-// @require      https://cdn.jsdelivr.net/npm/vuex@4/dist/vuex.global.prod.js
-// @require      https://cdn.jsdelivr.net/npm/element3/dist/element3-ui.global.prod.js
+// @require      https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js
+// @require      https://cdn.jsdelivr.net/npm/vuex@4/dist/vuex.global.js
+// @require      https://cdn.jsdelivr.net/npm/pinia@next/dist/pinia.global.js
+// @require      https://cdn.jsdelivr.net/npm/element3/dist/element3-ui.global.js
 // @require      https://cdn.jsdelivr.net/npm/gsap@3.6.0/dist/gsap.min.js
 // @match        http://*.wsmud.com/*
 // @exclude      http://*.wsmud.com/news*
