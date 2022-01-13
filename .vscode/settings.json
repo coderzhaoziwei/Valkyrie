@@ -1,0 +1,3 @@
+{
+  "files.insertFinalNewline": true, // 保存文件 强制结尾空行
+}

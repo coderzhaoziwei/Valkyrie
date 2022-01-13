@@ -1,0 +1,42 @@
+// TypeScript 项目的编译选项
+{
+  // 编译器选项
+  "compilerOptions": {
+    // "experimentalDecorators": true, // 实验装饰器
+    // "outDir": "./outDir",
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "source/*",
+      ],
+    },
+    // "allowJs": true,
+    "jsx": "preserve",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "useDefineForClassFields": true,
+    "lib": [
+      "dom",
+      "esnext",
+    ],
+  },
+  // 包含项
+  "include": [
+    "source/**/*.ts",
+    "source/**/*.d.ts",
+    "source/**/*.vue",
+    "source/**/*.ts",
+    "source/**/*.d.ts",
+    "source/**/*.tsx",
+    "source/**/*.vue",
+  ],
+  // 排除项
+  "exclude": [
+    "node_modules",
+  ],
+}
