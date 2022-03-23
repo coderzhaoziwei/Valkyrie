@@ -3,3 +3,11 @@ node_modules
 dist
 dist-ssr
 *.local
+
+
+bundle
+public/favicon.ico
+source/assets/logo.png
+**/test.ts
+
+dist_electron

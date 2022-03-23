@@ -5,6 +5,8 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: process.env.ELECTRON === 'true' ? './' : '.',
+
   // 插件
   plugins: [
     vue(),
@@ -16,7 +18,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'source'),
     },
   },
-
   // 构建选项
   // https://vitejs.cn/config/#build-options
   build: {
@@ -28,11 +29,11 @@ export default defineConfig({
       // entry: string
       entry: path.resolve(__dirname, 'source/main.ts'),
       // name?: string
-      name: 'MyLib',
-      // formats?: ('es' | 'cjs' | 'umd' | 'iife')[]
-      formats: ['es', 'cjs', 'umd', 'iife'],
+      name: 'Valkyrie',
+      // formats?: ('es' | 'cjs' | 'umd' | 'iife')[] // 'es', 'cjs', 'umd',
+      formats: ['iife'],
       // fileName?: string | ((format: ModuleFormat) => string)
-      fileName: (format) => `my-lib.${format}.js`,
+      fileName: (format) => `valkyrie.${format}.js`,
     },
 
     // https://vitejs.cn/config/#build-rollupoptions
@@ -63,10 +64,29 @@ export default defineConfig({
     port: 10101,
     // 自定义代理规则
     proxy: {
-      // '/api/name' === 'https://api.com/name'
-      '/api': 'https://api.com/',
+      '/api': {
+        // 所要代理的目标地址
+        target: 'http://game.wsmud.com',
+        // Default: false - changes the origin of the host header to the target URL
+        changeOrigin: true,
+        // 重写传过来的path路径
+        rewrite(path) {
+          return path.replace(/^\/api/, '')
+        },
+      },
 
+      // http://game.wsmud.com/UserAPI/Login
+      '/UserAPI': {
+        target: 'http://game.wsmud.com/UserAPI',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/UserAPI/, ''),
+      },
       // http://game.wsmud.com/Game/GetServer
+      '/Game': {
+        target: 'http://game.wsmud.com/Game',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/Game/, ''),
+      },
     },
   },
 

@@ -27,3 +27,11 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 
 <!-- isAuthenticated 已认证 -->
+
+
+
+```
+yarn add electron@16.0.6 --dev
+yarn add electron-builder --dev
+yarn add concurrently cross-env wait-on --dev
+```
